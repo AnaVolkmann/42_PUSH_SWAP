@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/09 16:48:51 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:58:10 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int		is_sorted(t_stack *stack_a);
 
 /*......................LIST_UTILS........................*/
 
-int		ft_max(t_stack *stack_a);
-int		ft_min(t_stack *stack_a);
+t_stack	*ft_biggest(t_stack **stack_a);
+t_stack	*ft_lowest(t_stack **stack_a);
 int		ft_list_size(t_stack *lst);
 t_stack	*ft_last_list(t_stack *lst);
 
@@ -72,5 +72,10 @@ void	ft_pb(t_stack **stack_b, t_stack **stack_a, int i);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b, int i);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b, int i);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int i);
+
+/*......................BIG_SORT.........................*/
+
+void	sort_stack(t_stack **stack_a);
+void	sort_three(t_stack **stack_a);
 
 #endif

@@ -6,40 +6,44 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:56:45 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/09 16:38:33 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:06:15 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /** @brief Finds and returns the smallest number in the stack. */
-int	ft_min(t_stack *stack_a)
+t_stack	*ft_lowest(t_stack **stack_a)
 {
-	int		current;
+	t_stack	*lowest;
+	t_stack	*temp;
 
-	current = stack_a->data;
-	while (stack_a)
+	temp = *stack_a;
+	lowest = temp;
+	while (temp)
 	{
-		if (stack_a->data < current)
-			current = stack_a->data;
-		stack_a = stack_a->next;
+		if (temp->data < lowest->data)
+			lowest = temp;
+		temp = temp->next;
 	}
-	return (current);
+	return (lowest);
 }
 
 /** @brief Finds and returns the biggest number in the stack. */
-int	ft_max(t_stack *stack_a)
+t_stack	*ft_biggest(t_stack **stack_a)
 {
-	int		current;
+	t_stack	*biggest;
+	t_stack	*temp;
 
-	current = stack_a->data;
-	while (stack_a)
+	temp = *stack_a;
+	biggest = temp;
+	while (temp)
 	{
-		if (stack_a->data > current)
-			current = stack_a->data;
-		stack_a = stack_a->next;
+		if (temp->data > biggest->data)
+			biggest = temp;
+		temp = temp->next;
 	}
-	return (current);
+	return (biggest);
 }
 
 /** @brief Returns the last node of the stack*/

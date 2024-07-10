@@ -6,37 +6,11 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 20:46:55 by anavolkmann       #+#    #+#             */
-/*   Updated: 2024/07/10 12:20:59 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:12:03 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *str, int c)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == (char) c)
-			return ((char *) &str[i]);
-		i++;
-	}
-	if ((char) c == '\0')
-		return ((char *)&str[i]);
-	return (NULL);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -58,11 +32,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-/* static variables: persistência se refere à característica de um
+/** static variables: persistência se refere à característica de um
 estado que sobrevive ao processo que o criou. Sem essa capacidade,
 o estado só existiria na RAM, e seria perdido quando a RAM parasse.*/
 
-/* @brief Pega o fd aberto e salva em uma variável "buf" o que foi
+/** @brief Pega o fd aberto e salva em uma variável "buf" o que foi
 lido a partir dele. depois junta-se à variável estática cumulativa
 para a persistência das informações.
  @param fd pointer para a variável estática cumulativa de
@@ -94,7 +68,7 @@ char	*ft_read_left_str(int fd, char *laststr)
 	return (laststr);
 }
 
-/* @brief extrai a linha (terminando em quebra de linha e '\0' ou
+/** @brief extrai a linha (terminando em quebra de linha e '\0' ou
 so '\0')
   @param laststr o ponteiro para variavel estatica cumulativa de
 execucoes anteriores da GNL
@@ -126,7 +100,7 @@ static char	*ft_getline(char *laststr)
 	return (line);
 }
 
-/* @brief armazena na variavel estatica cumulariva a nova variavel
+/** @brief armazena na variavel estatica cumulariva a nova variavel
 atualizada com o que resta da original, MENOS a linha extraida
  @param laststr ponteiro para a variavel estatica cumulariva de
 outras execucoes da GNL
@@ -157,7 +131,7 @@ static char	*ft_new_left_str(char *laststr)
 	return (str);
 }
 
-/* @brief Esta função pega um descritor de arquivo aberto e retorna
+/** @brief Esta função pega um descritor de arquivo aberto e retorna
 sua próxima linha. Esta função possui comportamento indefinido
 ao ler um arquivo binário.
  @param fd Um descritor de arquivo
@@ -177,43 +151,3 @@ char	*get_next_line(int fd)
 	laststr = ft_new_left_str(laststr);
 	return (line);
 }
-
-/* #include<stdio.h>
-int	main(void)
-{
-	int		fd;
-	char	*str;
-
-	fd = open("test.txt", O_RDONLY);
-	str = get_next_line(fd);
-	if (fd == -1)
-	{
-		printf("Error\n");
-		return (0);
-	}
-	printf("Your fd file is %d\n", fd);
-	while (str != NULL)
-	{
-		printf("%s", str);
-		free(str);
-		str = get_next_line(fd);
-	}
-	printf("Total of lines on file: %s", str);
-	close(fd);
-	return (0);
-}#include <stdio.h>
-#include <fcntl.h>
-int main()
-{
-	char *a;
-	int i = 0;
-	int fd = open("test.txt", O_RDONLY);
-	
-	while (a)
-	{
-		a = get_next_line(fd);
-		printf(" %i -> %s", i, a);
-		free(a);
-		i++;
-	}
-} */
