@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/10 14:58:10 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:23:17 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int i);
 
 void	sort_stack(t_stack **stack_a);
 void	sort_three(t_stack **stack_a);
+t_stack *sort_b(t_stack **stack_a);
 
 #endif
