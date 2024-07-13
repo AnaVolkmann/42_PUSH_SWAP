@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/10 15:23:17 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/13 18:13:51 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 typedef struct s_stack
 {
 	int				data;// the value of the node
-	int				pos;// position of the node in the stack
+	int				index;// position of the node in the stack
 	int				above_median;// flag to indicate if num is above median
-	int				min_mov;// minimum moves required for operation
+	int				cost;// minimum moves required for operation
 	struct s_stack	*target;// pointer to the target node
 	struct s_stack	*next;// pointer to the next node in the list
 	struct s_stack	*prev;// pointer to the previous node
@@ -34,7 +34,7 @@ typedef struct s_stack
 /*....................HANDLE_ERRORS......................*/
 
 int		error_int(int argc, char **argv);
-int		error_syntax(int agrc, char **argv);
+int		error_syntax(char **argv);
 int		error_dup(char **argv);
 int		valid_imput(char **argv, int argc);
 
@@ -58,6 +58,10 @@ t_stack	*ft_biggest(t_stack **stack_a);
 t_stack	*ft_lowest(t_stack **stack_a);
 int		ft_list_size(t_stack *lst);
 t_stack	*ft_last_list(t_stack *lst);
+
+/*......................LIST_UTILS2........................*/
+
+void ft_target_in_b(t_stack **stack_a, t_stack **stack_b);
 
 /*......................OPERATIONS.........................*/
 

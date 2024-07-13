@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:56:45 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/10 15:06:15 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/13 18:13:51 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,20 @@ int	ft_list_size(t_stack *lst)
 	}
 	return (count);
 }
+
+/** @brief returns the element that takes the list movements to push*/
+/* t_stack	*ft_cheapest(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack	*cheapest;
+
+	temp = *stack;
+	cheapest = temp;
+	while (temp)
+	{
+		if (temp->cost < cheapest->cost)
+			cheapest = temp;
+		temp = temp->next;
+	}
+	return (cheapest);
+} */

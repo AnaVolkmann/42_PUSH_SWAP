@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 15:36:53 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/09 16:38:09 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/13 16:44:26 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ int	error_int(int argc, char **argv)
 }
 
 /** @brief checks if the parameters are integers, also checks signs*/
-int	error_syntax(int argc, char **argv)
+int	error_syntax(char **argv)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	if (argc == 2)
-		i = 0;
+	i = 0;
 	while (argv[i])
 	{
 		j = 0;
@@ -82,7 +80,7 @@ int	error_dup(char **argv)
 /** @brief ckecks imput for all requesites*/
 int	valid_imput(char **argv, int argc)
 {
-	if (!argv[0] || !argv[0][0] || error_syntax(argc, argv)
+	if (!argv[0] || !argv[0][0] || error_syntax(argv)
 		|| error_int(argc, argv) || error_dup(argv))
 		return (0);
 	return (1);
