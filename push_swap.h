@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/13 18:13:51 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:14:29 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 {
 	int				data;// the value of the node
 	int				index;// position of the node in the stack
-	int				above_median;// flag to indicate if num is above median
+	bool			above_median;// flag to indicate if num is above median
 	int				cost;// minimum moves required for operation
 	struct s_stack	*target;// pointer to the target node
 	struct s_stack	*next;// pointer to the next node in the list
@@ -58,10 +58,7 @@ t_stack	*ft_biggest(t_stack **stack_a);
 t_stack	*ft_lowest(t_stack **stack_a);
 int		ft_list_size(t_stack *lst);
 t_stack	*ft_last_list(t_stack *lst);
-
-/*......................LIST_UTILS2........................*/
-
-void ft_target_in_b(t_stack **stack_a, t_stack **stack_b);
+t_stack	*ft_cheapest(t_stack **stack);
 
 /*......................OPERATIONS.........................*/
 
@@ -81,6 +78,19 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int i);
 
 void	sort_stack(t_stack **stack_a);
 void	sort_three(t_stack **stack_a);
-t_stack *sort_b(t_stack **stack_a);
+
+/*......................SET_TARGETS........................*/
+
+void set_target_in_b(t_stack **stack_a, t_stack **stack_b);
+void set_target_in_a(t_stack **stack_a, t_stack **stack_b);
+void	update_stack_nodes(t_stack **stack_a, t_stack **stack_b, int flag);
+
+/*......................SET_COST_OF.........................*/
+
+void	cost_of_a (t_stack **stack_a, t_stack **stack_b);
+void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b);
+void	index_median(t_stack **stack);
+void	cost_of_b(t_stack **stack_a, t_stack **stack_b);
+void	send_b_to_a(t_stack **stack_a, t_stack **stack_b);
 
 #endif

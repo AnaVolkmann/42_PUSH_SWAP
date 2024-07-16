@@ -1,6 +1,6 @@
 SRC = handle_errors.c push_swap.c init_stack.c frees.c is_sorted.c\
 list_utils.c operations_stack_a.c operations_stack_b.c\
-mutual_operations.c ft_big_sort.c list_utils2.c
+mutual_operations.c ft_big_sort.c set_targets.c set_cost_of.c
 OBJS = $(SRC:.c=.o)
 CC = cc
 RM = rm -f
