@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:54:58 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/16 15:14:29 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:47:07 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,24 @@ void	send_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	ft_pa(stack_a, stack_b, 0);
 }
 
-void	sort_stack(t_stack **stack_a)
+/* void lowest_on_top(t_stack **stack_a)
 {
-	t_stack	**stack_b;
-
-	stack_b = NULL;
+	if (!is_sorted(*stack_a))
+		while (*stack_a != ft_lowest(stack_a))
+		{
+			ft_ra(stack_a, 0);
+		}
+} */
+void	sort_stack(t_stack **stack_a, t_stack **stack_b)
+{
 	if (ft_list_size(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else if (ft_list_size(*stack_a) == 3)
 		sort_three(stack_a);
 	if (ft_list_size(*stack_a) > 3 && !is_sorted(*stack_a))
-		ft_pb(&stack_b, stack_a, 0);
+		ft_pb(stack_b, stack_a, 0);
 	if (ft_list_size(*stack_a) > 3 && !is_sorted(*stack_a))
-		ft_pb(&stack_b, stack_a, 0);
+		ft_pb(stack_b, stack_a, 0);
 	while (ft_list_size(*stack_a) > 3)
 	{
 		update_stack_nodes(stack_a, stack_b, 1);

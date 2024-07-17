@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:45:59 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/09 16:46:12 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:12:27 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,14 @@ place it on top of 'b'. Do nothing if 'a' is empty.*/
 void	ft_pb(t_stack **stack_b, t_stack **stack_a, int i)
 {
 	t_stack	*temp;
+	t_stack *temp_a;
 
 	if (!stack_a || !(*stack_a))
 		return ;
 	temp = *stack_b;
-	*stack_b = *stack_a;
-	*stack_a = (*stack_a)->next;
+	temp_a = *stack_a;
+	*stack_b = temp_a;
+	*stack_a = (temp_a)->next;
 	if (*stack_a)
 	{
 		(*stack_a)->prev = NULL;

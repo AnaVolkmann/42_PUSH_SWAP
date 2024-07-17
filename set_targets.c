@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:26:47 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/16 15:05:59 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:13:20 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void set_target_in_b(t_stack **stack_a, t_stack **stack_b)
 }
 
 /** @brief this funcion sets the best targets for each element
- *  of statck b in stack a; */
+ *  of stack b in stack a; */
 void set_target_in_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *temp_a;
@@ -74,7 +74,7 @@ void set_target_in_a(t_stack **stack_a, t_stack **stack_b)
 void	update_stack_nodes(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	index_median(stack_a);
-	idex_median(stack_b);
+	index_median(stack_b);
 	if (flag == 1)
 	{
 		set_target_in_b(stack_a, stack_b);
