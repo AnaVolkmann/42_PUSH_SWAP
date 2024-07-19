@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:54:58 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/17 14:47:07 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:18:38 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,20 @@ void	send_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	ft_pa(stack_a, stack_b, 0);
 }
 
-/* void lowest_on_top(t_stack **stack_a)
+void lowest_on_top(t_stack **stack_a)
 {
-	if (!is_sorted(*stack_a))
-		while (*stack_a != ft_lowest(stack_a))
-		{
+	t_stack *lowest;
+
+	index_median(stack_a);
+	lowest = ft_lowest(stack_a);
+	while (lowest != *stack_a)
+	{
+		if (lowest->above_median)
 			ft_ra(stack_a, 0);
-		}
-} */
+		else
+			ft_rra(stack_a, 0);
+	}
+}
 void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_list_size(*stack_a) == 2)
@@ -101,5 +107,5 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 		update_stack_nodes(stack_a, stack_b, 0);
 		send_b_to_a(stack_a, stack_b);
 	}
-	//lowest_on_top
+	lowest_on_top(stack_a);
 }

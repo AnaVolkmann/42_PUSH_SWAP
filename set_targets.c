@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:26:47 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/17 15:13:20 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:07:23 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void set_target_in_a(t_stack **stack_a, t_stack **stack_b)
 	t_stack *temp_a;
 	t_stack *temp_b;
 	t_stack *best_target;
-	t_stack *biggest;
+	t_stack *lowest;
 
 	temp_b = *stack_b;
-	biggest = ft_biggest(stack_a);
+	lowest = ft_lowest(stack_a);
 	while (temp_b)
 	{
 		best_target = NULL;
@@ -65,7 +65,7 @@ void set_target_in_a(t_stack **stack_a, t_stack **stack_b)
 			temp_a = temp_a->next;
 		}
 		if (!best_target)
-			temp_b->target = biggest;
+			temp_b->target = lowest;
 		else 
 			temp_b->target = best_target;
 		temp_b = temp_b->next;

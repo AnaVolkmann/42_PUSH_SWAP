@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/17 14:15:41 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:16:31 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int i);
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack_a);
+void	lowest_on_top(t_stack **stack_a);
 
 /*......................SET_TARGETS........................*/
 
-void set_target_in_b(t_stack **stack_a, t_stack **stack_b);
-void set_target_in_a(t_stack **stack_a, t_stack **stack_b);
+void	set_target_in_b(t_stack **stack_a, t_stack **stack_b);
+void	set_target_in_a(t_stack **stack_a, t_stack **stack_b);
 void	update_stack_nodes(t_stack **stack_a, t_stack **stack_b, int flag);
 
 /*......................SET_COST_OF.........................*/

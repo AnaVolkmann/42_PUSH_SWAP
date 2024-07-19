@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/17 15:03:00 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:58:04 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	index_median(t_stack **stack)
 
 	median = ft_list_size(*stack) / 2;
 	i = 0;
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
 	temp = *stack;
 	while (temp)
 	{

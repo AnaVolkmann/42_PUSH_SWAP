@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:56:45 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/16 13:21:39 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:48:24 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ t_stack	*ft_last_list(t_stack *lst)
 }
 
 /** @brief Conts the number of elements in the stack*/
-int	ft_list_size(t_stack *lst)
+int	ft_list_size(t_stack *stack)
 {
 	size_t	count;
+	t_stack *temp;
 
+	temp = stack;
 	count = 0;
-	while (lst)
+	while (temp)
 	{
-		lst = lst->next;
+		temp = temp->next;
 		count++;
 	}
 	return (count);
