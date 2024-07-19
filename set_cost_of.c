@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/19 13:58:04 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:57:33 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,17 @@ void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b)
 
 	if (temp->above_median && temp->target->above_median)
 	{
-		temp->cost -= (temp->index < temp->target->index) ? temp->index : temp->target->index;
+		if (temp->index < temp->target->index)
+			temp->cost -= temp->index;
+		else
+			temp->cost -= temp->target->index;
 	}
-	else
+	else if (!(temp->above_median) && (!temp->target->above_median))
 	{
-		int cost_a = size_a - temp->index;
-		int cost_b = size_b - temp->target->index;
-		temp->cost -= (cost_a < cost_b) ? cost_a : cost_b;
+		if (size_a - temp->index < size_b - temp->target->index)
+			temp->cost -= size_a - temp->index;
+		else
+			temp->cost -= size_b - temp->target->index;
 	}
 }
 
