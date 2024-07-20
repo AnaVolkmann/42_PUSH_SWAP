@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/19 15:57:33 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:17:10 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,15 @@ void	index_median(t_stack **stack)
 	t_stack	*temp;
 	int		median;
 
-	median = ft_list_size(*stack) / 2;
+	median = ft_stack_size(stack) / 2;
 	i = 0;
-	while ((*stack)->prev)
-		*stack = (*stack)->prev;
 	temp = *stack;
 	while (temp)
 	{
 		temp->index = i;
 		if (i < median)
 			temp->above_median = true;
-		else if (i > median)
+		else
 			temp->above_median = false;
 		i++;
 		temp = temp->next;
@@ -39,8 +37,8 @@ void	index_median(t_stack **stack)
 
 void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b)
 {
-	int size_a = ft_list_size(*stack_a);
-	int size_b = ft_list_size(*stack_b);
+	int size_a = ft_stack_size(stack_a);
+	int size_b = ft_stack_size(stack_b);
 
 	if (temp->above_median && temp->target->above_median)
 	{
@@ -69,12 +67,12 @@ void	cost_of_a (t_stack **stack_a, t_stack **stack_b)
 	{
 		if (temp->above_median)
 			temp->cost = temp->index;
-		else
-			temp->cost = ft_list_size(*stack_a) - temp->index;
+		if (!(temp->above_median))
+			temp->cost = ft_stack_size(stack_a) - temp->index;
 		if (temp->target->above_median)
 			temp->cost += temp->target->index;
-		else
-			temp->cost += ft_list_size(*stack_b) - temp->target->index;
+		if (!(temp->target->above_median))
+			temp->cost += ft_stack_size(stack_b) - temp->target->index;
 		refine_cost(temp, stack_a, stack_b);
 		temp = temp->next;
 	}
@@ -82,19 +80,19 @@ void	cost_of_a (t_stack **stack_a, t_stack **stack_b)
 
 void	cost_of_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack_b;
 	while (temp)
 	{
 		if (temp->above_median)
 			temp->cost = temp->index;
-		else
-			temp->cost = ft_list_size(*stack_a) - temp->index;
+		if (!temp->above_median)
+			temp->cost = ft_stack_size(stack_b) - temp->index;
 		if (temp->target->above_median)
 			temp->cost += temp->target->index;
-		else
-			temp->cost += ft_list_size(*stack_b) - temp->target->index;
+		if (!(temp->target->above_median))
+			temp->cost += ft_stack_size(stack_a) - temp->target->index;
 		refine_cost(temp, stack_b, stack_a);
 		temp = temp->next;
 	}

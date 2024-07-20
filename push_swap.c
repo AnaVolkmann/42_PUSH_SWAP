@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:18:34 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/19 15:12:16 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 18:33:54 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,11 @@ int	main(int argc, char **argv)
 	else
 		stack_a = new_stack(argv);
 	if (!is_sorted(stack_a))
-	{
 		sort_stack(&stack_a, &stack_b);
-		t_stack	*temp;
-		t_stack *temp_b;
-		temp_b = stack_b;
-		temp = stack_a;
-		ft_printf("a |");
-		while (temp)
-		{
-			ft_printf("%d->", temp->data);
-			//ft_printf("b | %d->\n", temp_b->data);
-			//if (temp->target)
-				//ft_printf("target: %d", temp->target->data);
-			//ft_printf("\n");
-			temp = temp->next;
-		}
-	}
-	ft_printf("NULL\n");
-	free_split(argc, argv, false);
+	if (argc == 2)
+		free_split(argc, argv, false);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
 }
+

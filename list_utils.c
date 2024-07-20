@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:56:45 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/19 13:48:24 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:24:40 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,25 @@ t_stack	*ft_biggest(t_stack **stack_a)
 }
 
 /** @brief Returns the last node of the stack*/
-t_stack	*ft_last_list(t_stack *lst)
+t_stack	*ft_last_node(t_stack **stack)
 {
-	if (!lst)
+	t_stack	*temp;
+
+	temp = *stack;
+	if (temp == NULL)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
 }
 
 /** @brief Conts the number of elements in the stack*/
-int	ft_list_size(t_stack *stack)
+int	ft_stack_size(t_stack **stack)
 {
 	size_t	count;
 	t_stack *temp;
 
-	temp = stack;
+	temp = *stack;
 	count = 0;
 	while (temp)
 	{

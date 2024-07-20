@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:33:07 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/19 14:58:15 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:30:51 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@
  * first element becomes the last.*/
 void	ft_ra(t_stack **stack_a, int i)
 {
-	t_stack	*temp;
-	t_stack *last;
+	t_stack	*last;
 
-	if (!*stack_a || !(*stack_a)->next)
+	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
-	temp = *stack_a;
-	last = ft_last_list(*stack_a);
-	*stack_a = temp->next;
-	(*stack_a)->prev = NULL;
-	temp->next = NULL;
-	temp->prev = last;
-	last->next = temp;
+	last = ft_last_node(stack_a);
+	(*stack_a)->prev = last;
+	last->next = (*stack_a);
+	(*stack_a)->next->prev = NULL;
+	*stack_a = (*stack_a)->next;
+	last->next->next = NULL;
 	if (i == 0)
 		write(1, "ra\n", 3);
 }
@@ -36,20 +34,18 @@ void	ft_ra(t_stack **stack_a, int i)
 Do nothing if there is only one or no elements.*/
 void	ft_sa(t_stack **stack_a, int i)
 {
-	t_stack	*first;
-	t_stack *second;
+	t_stack	*second;
 
-	if (!*stack_a || !((*stack_a)->next))
+	if (*stack_a == NULL)
 		return ;
-	first = *stack_a;
-	second = first->next;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	first->prev = second;
-	second->next = first;
+	second = (*stack_a)->next;
+	if (ft_stack_size(stack_a) >= 3)
+		second->next->prev = *stack_a;
+	(*stack_a)->prev = second;
+	(*stack_a)->next = second->next;
 	second->prev = NULL;
-	(*stack_a) = second;
+	second->next = *stack_a;
+	*stack_a = second;
 	if (i == 0)
 		write (1, "sa\n", 3);
 }
@@ -58,17 +54,16 @@ void	ft_sa(t_stack **stack_a, int i)
 The last element becomes the first one.*/
 void	ft_rra(t_stack **stack_a, int i)
 {
-	t_stack *last;
+	t_stack	*last;
 
-	if (!*stack_a || !((*stack_a)->next))
+	if (!(*stack_a) || (*stack_a)->next == NULL)
 		return ;
-	last = ft_last_list(*stack_a);
-	if (last->prev)
-		last->prev->next = NULL;
+	last = ft_last_node(stack_a);
 	last->next = *stack_a;
+	last->prev->next = NULL;
 	(*stack_a)->prev = last;
-	last->prev = NULL;
-	(*stack_a) = last;
+	*stack_a = last;
+	(*stack_a)->prev = NULL;
 	if (i == 0)
 		write (1, "rra\n", 4);
 }

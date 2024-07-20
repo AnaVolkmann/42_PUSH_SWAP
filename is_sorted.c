@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:33:23 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/08 18:17:56 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 18:33:54 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,26 @@ int	is_sorted(t_stack *stack_a)
 	}
 	return (1);
 }
+
+void	print_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (*stack == NULL)
+		ft_printf("NULL\n");
+	else
+	{
+		tmp = *stack;
+		while (tmp)
+		{
+			ft_printf("data: %i -> ", tmp->data);
+			ft_printf("index: %i -> ", tmp->index);
+			ft_printf("above median: %i -> ", tmp->above_median);
+			ft_printf("cost to push: %i\n", tmp->cost);
+			if (tmp->target)
+				ft_printf("target node: %i\n", tmp->target->data);
+			tmp = tmp->next;
+		}
+	}
+}
+
