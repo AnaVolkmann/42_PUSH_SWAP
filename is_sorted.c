@@ -6,11 +6,24 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:33:23 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 18:33:54 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 19:25:31 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_three(t_stack **stack_a)
+{
+	if (ft_stack_size(stack_a) == 3)
+	{
+		if (ft_biggest(stack_a) == *stack_a)
+			ft_ra(stack_a, 0);
+		else if (ft_biggest(stack_a) == (*stack_a)->next)
+			ft_rra(stack_a, 0);
+		if ((*stack_a)->data > (*stack_a)->next->data)
+			ft_sa(stack_a, 0);
+	}
+}
 
 /** @brief Checks if the stack is already in order.*/
 int	is_sorted(t_stack *stack_a)
@@ -49,4 +62,3 @@ void	print_stack(t_stack **stack)
 		}
 	}
 }
-

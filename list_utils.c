@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:56:45 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 17:24:40 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 19:22:38 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_stack	*ft_last_node(t_stack **stack)
 int	ft_stack_size(t_stack **stack)
 {
 	size_t	count;
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	count = 0;

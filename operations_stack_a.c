@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:33:07 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 17:30:51 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 19:23:00 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_rra(t_stack **stack_a, int i)
 place it on top of 'a'. Do nothing if 'b' is empty.*/
 void	ft_pa(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	t_stack *temp_b;
+	t_stack	*temp_b;
 
 	if (!stack_b)
 		return ;

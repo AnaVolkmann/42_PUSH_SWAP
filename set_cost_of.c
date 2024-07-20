@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 17:17:10 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/20 19:31:26 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	index_median(t_stack **stack)
 
 void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b)
 {
-	int size_a = ft_stack_size(stack_a);
-	int size_b = ft_stack_size(stack_b);
+	int	size_a;
+	int	size_b;
 
+	size_a = ft_stack_size(stack_a);
+	size_b = ft_stack_size(stack_b);
 	if (temp->above_median && temp->target->above_median)
 	{
 		if (temp->index < temp->target->index)
@@ -58,7 +60,7 @@ void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b)
 
 /** @brief this funcion defines the cost of sending an
  *  element of a to b*/
-void	cost_of_a (t_stack **stack_a, t_stack **stack_b)
+void	cost_of_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
 
