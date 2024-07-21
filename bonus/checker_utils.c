@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 14:33:56 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/21 18:10:01 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:38:07 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	check_output(t_stack **stack_a, t_stack **stack_b)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	get_next_line(-1);
 	free_stack(*stack_a);
 	free_stack(*stack_b);
 }

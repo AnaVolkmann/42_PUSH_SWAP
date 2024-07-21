@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 20:46:55 by anavolkmann       #+#    #+#             */
-/*   Updated: 2024/07/21 16:39:29 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:43:10 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,15 +145,16 @@ Se ocorrer um erro ou não houver mais nada para ler, retorna NULL.*/
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*laststr[1024];
+	static char	*laststr;
 
+	if (fd == -1)
+		free(laststr);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	laststr[fd] = ft_read_left_str(fd, laststr[fd]);
-	if (!laststr[fd])
+	laststr = ft_read_left_str(fd, laststr);
+	if (!laststr)
 		return (NULL);
-	line = ft_getline(laststr[fd]);
-	laststr[fd] = ft_new_left_str(laststr[fd]);
+	line = ft_getline(laststr);
+	laststr = ft_new_left_str(laststr);
 	return (line);
 }
-
