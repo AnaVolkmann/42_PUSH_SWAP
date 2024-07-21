@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 14:18:34 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/21 16:17:20 by ana-lda-         ###   ########.fr       */
+/*   Created: 2024/07/21 14:21:56 by ana-lda-          #+#    #+#             */
+/*   Updated: 2024/07/21 17:55:15 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	main(int argc, char **argv)
 {
@@ -26,14 +26,11 @@ int	main(int argc, char **argv)
 	else
 		argv++;
 	if (!valid_imput(argv, argc))
-		free_split(argc, argv, true);
+		return (free_split(argc, argv, true));
 	else
 		stack_a = new_stack(argv);
-	if (!is_sorted(stack_a))
-		sort_stack(&stack_a, &stack_b);
 	if (argc == 2)
 		free_split(argc, argv, false);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	read_imput(&stack_a, &stack_b);
+	check_output(&stack_a, &stack_b);
 }

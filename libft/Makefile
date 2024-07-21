@@ -1,7 +1,7 @@
 SRC = ft_memset.c ft_strlcpy.c ft_bzero.c ft_calloc.c ft_split.c\
 ft_atol.c ft_printf.c ft_putchar.c ft_puthexa.c ft_putnbr.c\
 ft_putpointer.c ft_putpointerhexa.c ft_putstr.c ft_puthexa.c\
-ft_strlen.c ft_strchr.c get_next_line.c
+ft_strlen.c ft_strchr.c get_next_line.c ft_strcmp.c
 OBJS = ${SRC:.c=.o}
 RM = rm -rf
 CC = cc

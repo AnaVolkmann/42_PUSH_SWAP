@@ -6,30 +6,35 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 20:46:55 by anavolkmann       #+#    #+#             */
-/*   Updated: 2024/07/10 15:12:03 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 16:39:29 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, const char *s2)
 {
+	char	*new;
 	size_t	i;
 	size_t	j;
-	char	*str;
 
-	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + (ft_strlen(s2) + 1)));
-	if (!str)
+	if (!s1)
+	{
+		s1 = malloc(sizeof(char) * 1);
+		s1[0] = '\0';
+	}
+	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = 0;
-	return (str);
+	i = -1;
+	while (s1[++i])
+		new[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		new[i + j] = s2[j];
+	free(s1);
+	new[i + j] = '\0';
+	return (new);
 }
 
 /** static variables: persistência se refere à característica de um
@@ -140,14 +145,15 @@ Se ocorrer um erro ou não houver mais nada para ler, retorna NULL.*/
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*laststr;
+	static char	*laststr[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	laststr = ft_read_left_str(fd, laststr);
-	if (!laststr)
+	laststr[fd] = ft_read_left_str(fd, laststr[fd]);
+	if (!laststr[fd])
 		return (NULL);
-	line = ft_getline(laststr);
-	laststr = ft_new_left_str(laststr);
+	line = ft_getline(laststr[fd]);
+	laststr[fd] = ft_new_left_str(laststr[fd]);
 	return (line);
 }
+

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 15:08:27 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/21 16:26:51 by ana-lda-         ###   ########.fr       */
+/*   Created: 2024/07/21 14:24:29 by ana-lda-          #+#    #+#             */
+/*   Updated: 2024/07/21 18:03:19 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
+# include "../push_swap.h"
+# include "../libft/libft.h"
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] && s[i] != (unsigned char)c)
-		i++;
-	if (s[i] == (unsigned char)c)
-		return ((char *)&s[i]);
-	return (0);
-}
+void	read_imput(t_stack **stack_a, t_stack **stack_b);
+void	check_output(t_stack **stack_a, t_stack **stack_b);
+void	execute_checker(char *imput, t_stack **stack_a, t_stack **stack_b);
+void	free_error(char *imput, t_stack **stack_a, t_stack **stack_b, int flag);
 
+#endif

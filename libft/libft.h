@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:47 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/10 15:09:54 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 16:28:20 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *str, int c);
 int		ft_strlen(const char *str);
+int		ft_strcmp(char *s1, char *s2);
 
 /*.........................PRINTF.........................*/
 
@@ -48,7 +49,7 @@ int		ft_putstr(char *str);
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, const char *s2);
 char	*ft_strchr(const char *str, int c);
 int		ft_strlen(const char *str);
 
