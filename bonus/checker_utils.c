@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 14:33:56 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/21 18:03:19 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:10:01 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	execute_checker(char *imput, t_stack **stack_a, t_stack **stack_b)
 
 void	check_output(t_stack **stack_a, t_stack **stack_b)
 {
-	if (is_sorted(*stack_a) && stack_b == NULL)
+	if (is_sorted(*stack_a) && *stack_b == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
