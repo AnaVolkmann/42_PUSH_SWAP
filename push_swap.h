@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:05:43 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 19:25:58 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/21 13:06:06 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ int		free_split(int argc, char **argv, bool flag);
 t_stack	*new_stack(char **str);
 t_stack	*new_node(char *str);
 
-/*......................IS_SORTED.........................*/
+/*......................SORT_UTILS.........................*/
 
 void	sort_three(t_stack **stack_a);
 int		is_sorted(t_stack *stack_a);
 void	print_stack(t_stack **stack);
 
-/*......................LIST_UTILS........................*/
+/*......................STACK_UTILS........................*/
 
 t_stack	*ft_biggest(t_stack **stack_a);
 t_stack	*ft_lowest(t_stack **stack_a);
@@ -90,7 +90,7 @@ void	set_target_a(t_stack **stack_a, t_stack **stack_b);
 void	set_target_b(t_stack **stack_a, t_stack **stack_b);
 void	update_stack_nodes(t_stack **stack_a, t_stack **stack_b, char c);
 
-/*......................SET_COST_OF.........................*/
+/*......................SET_COST.........................*/
 
 void	cost_of_a(t_stack **stack_a, t_stack **stack_b);
 void	refine_cost(t_stack *temp, t_stack **stack_a, t_stack **stack_b);
