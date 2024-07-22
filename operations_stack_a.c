@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:33:07 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/07/20 19:23:00 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:38:26 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	t_stack	*temp_b;
 
-	if (!stack_b)
+	if (!*stack_b)
 		return ;
 	temp_b = *stack_b;
 	*stack_b = temp_b->next;
