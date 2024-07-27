@@ -18,6 +18,17 @@
 </div>
 
 ---
+<div align=center>
+
+| Keywords | Skills |
+|----------|--------|
+| - Sorting algorithms | - Rigor |
+| - Battery concept and handling elements | - Unix |
+| - Algorithm implementation | - Algorithms & AI |
+|   | - Imperative programming |
+</div>
+
+---
 
 <h3 align=left>
  Visual implementation of my algorithm:
